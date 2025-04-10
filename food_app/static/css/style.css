@@ -1,0 +1,195 @@
+/* Dark Theme Base */
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Headings */
+h1, h2 {
+    color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 8px 14px;
+    margin: 5px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/*place order button */
+button.place-order {
+    background-color: #28a745; /* Bootstrap green */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.place-order:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/*view buttons*/
+button.view-btn {
+    background-color: #007bff; /* Blue */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.view-btn:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+/*mange items & new order buttons*/
+.top-right-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.top-right-buttons button {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.top-right-buttons button:hover {
+    background-color: #2e86c1;
+}
+
+/*add item button*/
+.blue-bold-button {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.blue-bold-button:hover {
+    background-color: #2e86c1;
+}
+
+/*edit button*/
+.edit-button {
+    background-color: #20c997; /* Teal shade */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #17a589;
+}
+
+/*delete button*/
+.inline-form {
+    display: inline;
+}
+
+/*delete button*/
+.btn-delete {
+    background-color: #e74c3c;  /* bright red */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* capsule shape */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b; /* darker red on hover */
+}
+
+
+
+
+/* Input Fields */
+input, select {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border: 1px solid #555;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Forms */
+form {
+    max-width: 500px;
+    background-color: #292929;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #2a2a2a;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 12px;
+    text-align: left;
+    color: #f0f0f0;
+}
+
+th {
+    background-color: #333;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #242424;
+}
+
+/* Links */
+a {
+    color: #66ccff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+

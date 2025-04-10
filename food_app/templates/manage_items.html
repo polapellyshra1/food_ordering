@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Food Items</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div style="text-align: center; margin: 20px 0;">
+        <img src="{% static 'images/logo.jpg' %}" alt="Zaiqa-e-Deccan Logo" style="max-width: 300px; height: auto;">
+    </div>
+    <h2>Manage Food Items</h2>
+
+    <button class="blue-bold-button" onclick="window.location.href='{% url 'add_item' %}'"> Add Item + </button>
+    <button onclick="window.location.href='/'">Back to Home</button>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Food Item ID</th>
+                <th>Item Name</th>
+                <th>Price (₹)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in food_items %}
+            <tr>
+                <td>{{ item.item_id }}</td>
+                <td>{{ item.item_name }}</td>
+                <td>₹{{ item.price }}</td>
+                <td>
+                    <button class="edit-button" onclick="window.location.href='{% url 'edit_item' item.item_id %}'">Edit</button>
+                    <form method="post" action="{% url 'delete_item' item.item_id %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-delete">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No food items available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+

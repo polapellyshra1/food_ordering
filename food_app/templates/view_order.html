@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div style="text-align: center; margin: 20px 0;">
+        <img src="{% static 'images/logo.jpg' %}" alt="Zaiqa-e-Deccan Logo" style="max-width: 300px; height: auto;">
+    </div>
+    <h2>Order Details</h2>
+
+    <p><strong>Order ID:</strong> {{ order.order_id }}</p>
+    <p><strong>Customer Name:</strong> {{ order.customer_name }}</p>
+    <p><strong>Date & Time:</strong> {{ order.date_time }}</p>
+
+    <h3>Ordered Items:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Price (per item)</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detail in order_details %}
+            <tr>
+                <td>{{ detail.food_item.item_name }}</td>
+                <td>{{ detail.quantity }}</td>
+                <td>₹{{ detail.food_item.price }}</td>
+                <td>₹{{ detail.subtotal|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align: right; font-weight: bold;">Total Bill Amount:</td>
+                <td style="font-weight: bold;">₹{{ order.total_bill_amount|floatformat:2 }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br>
+    <button onclick="window.location.href='/'">Back to Home</button>
+</body>
+</html>

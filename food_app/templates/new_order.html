@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Order</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script>
+        function calculateTotal() {
+            let total = 0;
+            let rows = document.querySelectorAll(".food-item-row");
+            rows.forEach(row => {
+                let price = parseFloat(row.querySelector(".item-price").textContent);
+                let quantity = parseInt(row.querySelector(".item-qty").value) || 0;
+                total += price * quantity;
+            });
+            document.getElementById("total-bill").textContent = "₹" + total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <img src="{% static 'images/logo.jpg' %}" alt="Zaiqa-e-Deccan Logo" style="max-width: 300px; height: auto;">
+    </div>
+
+    <h2>New Order</h2>
+
+    <form method="POST" action="{% url 'place_order' %}">
+        {% csrf_token %}
+
+        <label for="customer_name_input">Customer Name:</label>
+        <input type="text" id="customer_name_input" name="customer_name" required>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in food_items %}
+                <tr class="food-item-row">
+                    <td><input type="checkbox" name="selected_items" value="{{ item.pk }}"></td>
+                    <td>{{ item.item_name }}</td>
+                    <td class="item-price">{{ item.price }}</td>
+                    <td>
+                        <input type="number" name="quantity_{{ item.pk }}" class="item-qty" min="0" value="0" onchange="calculateTotal()">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Total Bill: <span id="total-bill">₹0.00</span></h3>
+
+        <button type="submit" class="place-order">Place Order</button>
+        <button type="button" onclick="window.location.href='/'">Cancel</button>
+
+    </form>
+
+</body>
+</html>
