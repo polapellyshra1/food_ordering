@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-80_3#=ibk(x*jm-obg(#5ys(s(u!j@7g(kj85d6p3(mfyx*5sb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # Change to False for production
 
-ALLOWED_HOSTS = ['polapellyshra1.pythonanywhere.com']  # Add your PythonAnywhere domain
+ALLOWED_HOSTS = ['*'] # Deploy for any domain
 
 # Application definition
 INSTALLED_APPS = [
