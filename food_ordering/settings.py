@@ -8,9 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-80_3#=ibk(x*jm-obg(#5ys(s(u!j@7g(kj85d6p3(mfyx*5sb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*'] # Deploy for any domain
+ALLOWED_HOSTS = ['polapellyshra1.pythonanywhere.com'] # Deploy for pythonanywhere domain
 
 # Application definition
 INSTALLED_APPS = [
